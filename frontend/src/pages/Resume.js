@@ -21,6 +21,50 @@ function Resume() {
     fetchResume();
   }, []);
 
+  const handleDownloadResume = () => {
+    // Create a simple text-based resume
+    const resumeContent = `
+YUOT CIKOM
+${resume?.bio || 'Full-stack developer'}
+
+EXPERIENCE
+${
+  resume?.experience
+    ?.map(
+      (exp) =>
+        `${exp.position} at ${exp.company}\n${exp.startDate} - ${exp.endDate}\n${exp.description}`
+    )
+    .join('\n\n') || 'No experience data'
+}
+
+EDUCATION
+${
+  resume?.education
+    ?.map(
+      (edu) =>
+        `${edu.degree} in ${edu.field}\n${edu.institution} - Graduated ${edu.graduationYear}`
+    )
+    .join('\n\n') || 'No education data'
+}
+
+CERTIFICATIONS
+${
+  resume?.certifications
+    ?.map((cert) => `${cert.name} - ${cert.issuer} (${cert.date})`)
+    .join('\n') || 'No certifications'
+}
+    `;
+
+    // Create a blob and download
+    const element = document.createElement('a');
+    const file = new Blob([resumeContent], { type: 'text/plain' });
+    element.href = URL.createObjectURL(file);
+    element.download = 'Yuot_Cikom_Resume.txt';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  };
+
   if (loading) return <div className="container mt-5">Loading resume...</div>;
   if (!resume) return <div className="container mt-5">No resume found</div>;
 
@@ -95,7 +139,10 @@ function Resume() {
               <div className="card-body">
                 <h5 className="card-title">Profile</h5>
                 <p>{resume.bio || 'No bio available'}</p>
-                <button className="btn btn-primary w-100">
+                <button 
+                  className="btn btn-primary w-100"
+                  onClick={handleDownloadResume}
+                >
                   Download Resume
                 </button>
               </div>
