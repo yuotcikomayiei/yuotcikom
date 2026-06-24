@@ -1,0 +1,42 @@
+.resume-page {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.resume-page h2 {
+  font-weight: bold;
+  color: #333;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #667eea;
+}
+
+.resume-page h5 {
+  font-weight: bold;
+  color: #667eea;
+}
+
+.resume-page .card {
+  border: 1px solid #dee2e6;
+  transition: transform 0.3s ease;
+}
+
+.resume-page .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.resume-page section {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.resume-page .btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+.resume-page .btn-primary:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
