@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
+const { apiLimiter, contactLimiter } = require('./middleware/rateLimiter');
 
 // Initialize app
 const app = express();
@@ -12,6 +13,10 @@ connectDB();
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Apply rate limiting to API routes
+app.use('/api/', apiLimiter);
+app.use('/api/contact', contactLimiter);
 
 // Routes
 app.use('/api/blog', require('./routes/blogRoutes'));
