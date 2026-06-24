@@ -7,13 +7,13 @@ function Footer() {
       <div className="container">
         <p>&copy; 2024 Yuot Cikom. All rights reserved.</p>
         <div className="social-links">
-          <a href="#" className="text-light me-3">
+          <a href="https://github.com" className="text-light me-3" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
-          <a href="#" className="text-light me-3">
+          <a href="https://linkedin.com" className="text-light me-3" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
-          <a href="#" className="text-light">
+          <a href="https://twitter.com" className="text-light" target="_blank" rel="noopener noreferrer">
             Twitter
           </a>
         </div>
